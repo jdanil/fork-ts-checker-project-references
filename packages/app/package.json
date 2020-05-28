@@ -1,0 +1,36 @@
+{
+  "name": "@package/app",
+  "version": "0.1.0",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "cross-env TS_NODE_PROJECT=\"webpack/tsconfig.json\" webpack --config webpack/production.config.ts",
+    "clean": "rimraf build",
+    "compile": "tsc --build",
+    "start": "cross-env TS_NODE_PROJECT=\"webpack/tsconfig.json\" webpack-dev-server --hot --config=webpack/development.config.ts"
+  },
+  "dependencies": {
+    "@package/lib": "0.1.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@package/tsconfig": "0.1.0",
+    "@types/html-webpack-plugin": "3.2.3",
+    "@types/react": "16.9.35",
+    "@types/react-dom": "16.9.8",
+    "@types/webpack-dev-server": "3.11.0",
+    "@types/webpack-env": "1.15.2",
+    "@types/webpack-merge": "4.1.5",
+    "cross-env": "7.0.2",
+    "fork-ts-checker-webpack-plugin": "5.0.0-alpha.11",
+    "html-webpack-plugin": "4.3.0",
+    "rimraf": "3.0.2",
+    "ts-loader": "7.0.5",
+    "ts-node": "8.10.1",
+    "typescript": "3.9.3",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.11.0",
+    "webpack-merge": "4.2.2"
+  }
+}

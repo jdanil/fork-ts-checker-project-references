@@ -1,0 +1,24 @@
+{
+  "name": "@package/lib",
+  "version": "0.1.0",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "yarn compile",
+    "clean": "tsc --build --clean",
+    "compile": "tsc --build"
+  },
+  "peerDependencies": {
+    "react": ">=16.3.0",
+    "react-dom": ">=16.3.0"
+  },
+  "devDependencies": {
+    "@package/tsconfig": "0.1.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "typescript": "3.9.3"
+  }
+}

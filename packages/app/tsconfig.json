@@ -1,0 +1,10 @@
+{
+  "extends": "@package/tsconfig/web",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "build",
+    "rootDir": "src"
+  },
+  "include": ["src/"],
+  "references": [{ "path": "../lib" }]
+}
