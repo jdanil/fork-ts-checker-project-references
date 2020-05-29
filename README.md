@@ -11,8 +11,7 @@ Testbed to experiment with project references support in fork-ts-checker-webpack
 
 Some apparent issues:
 
-- cold start does not build referenced projects
-- compilation appears to occur but changes are not reflected
+- cannot import module with namespace syntax.
 
 Steps to reproduce:
 
@@ -20,13 +19,15 @@ Steps to reproduce:
 1. `yarn install`
 1. `cd packages/app`
 1. `yarn start`
-   - fails. need to `tsc --build` first.
-1. `yarn compile`
-1. `yarn start`
-   - runs successfully now.
-1. open up localhost in the browser
-1. edit `app/src/index.tsx`
-   - changes are reflected in the browser with hot reloading
-1. edit `lib/src/index/tsx`
-   - terminal shows referenced project is recompiled
-   - changes are not reflected in the browser, even after refresh
+   - fails. cannot import module with namespace syntax.
+
+Mitigation:
+
+Without updating the plugin, we can work around the issue by importing via:
+
+- direct import
+  - `import { ForkTsCheckerWebpackPlugin } from "fork-ts-checker-webpack-plugin/lib/ForkTsCheckerWebpackPlugin.js";`
+- enabling `esModuleInterop` and using a default import
+  - `import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin`
+- require without type definitions
+  - `const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')`
